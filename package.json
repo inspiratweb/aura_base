@@ -1,5 +1,5 @@
 {
-  "name": "Cabify",
+  "name": "Aura",
   "version": "1.0.0",
   "description": "Francisco Sanchez gulp template",
   "main": "js/all.js",
@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://*.git"
+    "url": "git+https://github.com/inspiratweb/aura_base.git"
   },
   "author": "Francisco Sanchez"
 }
