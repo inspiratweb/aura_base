@@ -9,6 +9,7 @@ var connect = require('gulp-connect');
 var plumber = require('gulp-plumber');
 var notify = require("gulp-notify");
 var livereload = require("gulp-livereload");
+var autoprefixer = require("gulp-autoprefixer");
 
 //sounds: Basso, Blow, Bottle, Frog, Funk, Glass, Hero, Morse, Ping, Pop, Purr, Sosumi, Submarine, Tink
 
@@ -31,6 +32,10 @@ gulp.task('sass', function() {
 		.pipe(plumber({errorHandler: onError}))
 		.pipe(sass({outputStyle: 'compressed'}))
 		.pipe(rename('styles.min.css'))
+		.pipe(autoprefixer({
+      browsers: ['> 5%'],
+      cascade: false
+    }))
 		.pipe(gulp.dest('./css/'))
 		.pipe(livereload())
 		.pipe(notify({title: "SASS", message: "compilation [OK]"}))
