@@ -1,0 +1,21 @@
+//Global styles used in every page
+
+/* DESKTOP */
+body:after
+  content: 'desktop'
+  display: none
+
+/* SMALL DESKTOP */
+@include bp(small_desktop)
+  body:after
+    content: 'small_desktop'
+
+/* TABLET */
+@include bp(tablet)
+	body:after
+    content: 'tablet'
+
+/* MOBILE */
+@include bp(mobile)
+	body:after
+    content: 'mobile'

@@ -1,0 +1,33 @@
+// Icons
+.data-ico
+	&:before, &-after:after
+		font-family: $iconFont
+		speak: none
+		font-style: normal
+		font-weight: normal
+		font-variant: normal
+		text-transform: none
+		line-height: 1
+
+		/* Better Font Rendering =========== */
+		-webkit-font-smoothing: antialiased
+		-moz-osx-font-smoothing: grayscale
+
+[data-ico]
+	@extend .data-ico
+	
+	&:before
+		content:attr(data-ico)
+
+// Other helpers
+.hide
+	display: none
+
+.clearfix
+	@extend %clearfix
+
+.left
+	float: left!important
+
+.right
+	float: right!important
