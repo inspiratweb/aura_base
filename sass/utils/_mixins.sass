@@ -1,12 +1,12 @@
-// usage: @include clearfix;
+// usage: @include clearfix
 @mixin clearfix
 	&:after
-		content: "";
-		display: table;
-		clear: both;
+		content: ""
+		display: table
+		clear: both
 
 %clearfix
-	@include clearfix;
+	@include clearfix
 
 // rgba polyfill ie8, usage @include rgba(red, 0.6)
 @mixin rgba($color, $alpha) 

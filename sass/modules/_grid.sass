@@ -58,11 +58,11 @@ $gutter: 2
 	//border: solid 1px #666
 	//background: #ccc
 	//height: 30px
-	padding-left: $gutter#{"%"}
-	padding-right: $gutter#{"%"}
+	padding-left: unquote('#{$gutter}"%"')
+	padding-right: unquote('#{$gutter}"%"')
 
 @mixin calc_width($col)
-	width: (($col/$grid_rows)*100)#{"%"}
+	width: unquote('#{$col / $grid_rows * 100}"%"')
 
 @include bp(desktop-only)
 	.column
