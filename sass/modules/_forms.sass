@@ -16,20 +16,25 @@ textarea
   &::-ms-clear
     display: none
 
-.form_field
+.form-field
   position: relative
 
-.form_checkbox
+.form-checkbox
   input[type=checkbox]
     position: absolute
     left: -99999px
     opacity: 0
 
-  &_label
+    &:checked+label
+      &:after
+        background: black
+
+  &-label
     position: relative
     cursor: pointer
     display: inline-block
     padding-left: 25px
+    margin-bottom: 10px
 
     &:before, &:after
       content: ""
@@ -42,66 +47,15 @@ textarea
     &:before
       border: solid 1px black
 
-    &.checked
-      &:after
-        background: black
+  &-right
+    .form-checkbox-label
+      padding-left: 0
+      padding-right: 25px
+      &:before, &:after
+        right: 0
+        left: auto
 
-.form_checkbox
-  input[type=checkbox]
-    position: absolute
-    left: -99999px
-    opacity: 0
-
-  &_label
-    position: relative
-    cursor: pointer
-    display: inline-block
-    padding-left: 25px
-
-    &:before, &:after
-      content: ""
-      position: absolute
-      top: 0
-      left: 0
-      width: 16px
-      height: 16px
-
-    &:before
-      border: solid 1px black
-
-    &.checked
-      &:after
-        background: black
-
-.form_radio
-  input[type=radio]
-    position: absolute
-    left: -99999px
-    opacity: 0
-  
-  &_label
-    position: relative
-    cursor: pointer
-    display: inline-block
-    padding-left: 25px
-
-    &:before, &:after
-      content: ""
-      position: absolute
-      top: 0
-      left: 0
-      width: 16px
-      height: 16px
-      border-radius: 50%
-
-    &:before
-      border: solid 1px black
-
-    &.checked
-      &:after
-        background: black
-
-.form_select
+.form-select
   select
     -webkit-appearance: menulist-button
     position: absolute

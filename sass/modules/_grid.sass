@@ -38,13 +38,13 @@ $gutter: 2
 	&-1, &-2, &-3, &-4
 		@extend %clearfix
 	&-1
-		margin-bottom: 10px
+		margin-bottom: 10px!important
 	&-2
-		margin-bottom: 20px
+		margin-bottom: 20px!important
 	&-3
-		margin-bottom: 40px
+		margin-bottom: 40px!important
 	&-4
-		margin-bottom: 100px
+		margin-bottom: 100px!important
 
 .collapse
 	.column
@@ -66,63 +66,18 @@ $gutter: 2
 
 @include bp(desktop-only)
 	.column
-		&.desktop-10
-			@include calc_width(10)
-		&.desktop-9
-			@include calc_width(9)
-		&.desktop-8
-			@include calc_width(8)
-		&.desktop-7
-			@include calc_width(7)
-		&.desktop-6
-			@include calc_width(6)
-		&.desktop-5
-			@include calc_width(5)
-		&.desktop-4
-			@include calc_width(4)
-		&.desktop-3
-			@include calc_width(3)
-		&.desktop-2
-			@include calc_width(2)
+		@for $i from 2 through 10
+			&.desktop-#{$i}
+				@include calc_width($i)
 
 @include bp(tablet-only)
 	.column
-		&.tablet-10
-			@include calc_width(10)
-		&.tablet-9
-			@include calc_width(9)
-		&.tablet-8
-			@include calc_width(8)
-		&.tablet-7
-			@include calc_width(7)
-		&.tablet-6
-			@include calc_width(6)
-		&.tablet-5
-			@include calc_width(5)
-		&.tablet-4
-			@include calc_width(4)
-		&.tablet-3
-			@include calc_width(3)
-		&.tablet-2
-			@include calc_width(2)
+		@for $i from 2 through 10
+			&.tablet-#{$i}
+				@include calc_width($i)
 
 @include bp(mobile)
 	.column
-		&.mobile-10
-			@include calc_width(10)
-		&.mobile-9
-			@include calc_width(9)
-		&.mobile-8
-			@include calc_width(8)
-		&.mobile-7
-			@include calc_width(7)
-		&.mobile-6
-			@include calc_width(6)
-		&.mobile-5
-			@include calc_width(5)
-		&.mobile-4
-			@include calc_width(4)
-		&.mobile-3
-			@include calc_width(3)
-		&.mobile-2
-			@include calc_width(2)
+		@for $i from 2 through 10
+			&.mobile-#{$i}
+				@include calc_width($i)
