@@ -1,0 +1,80 @@
+input[type="submit"], button{
+  cursor: pointer;
+}
+
+input[type=text],
+input[type=tel], 
+input[type=date], 
+input[type=number], 
+input[type=password], 
+input[type=email], 
+textarea{
+  -webkit-appearance: none;
+  border-radius: 0;
+  outline: none;
+  border: none;
+  width: 100%;
+  &::-ms-clear{
+    display: none;
+  }
+}
+
+.form-field{
+  position: relative;
+}
+
+.form-checkbox{
+  input[type=checkbox]{
+    position: absolute;
+    left: -99999px;
+    opacity: 0;
+
+    &:checked+label{
+      &:after{
+        background: black;
+      }
+    }
+  }
+
+  &-label{
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    padding-left: 25px;
+    margin-bottom: 10px;
+
+    &:before, &:after{
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 16px;
+      height: 16px;
+    }
+
+    &:before{
+      border: solid 1px black;
+    }
+  }
+
+  &-right{
+    .form-checkbox-label{
+      padding-left: 0;
+      padding-right: 25px;
+      &:before, &:after{
+        right: 0;
+        left: auto;
+      }
+    }
+  }
+}
+
+.form-select{
+  select{
+    -webkit-appearance: menulist-button;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+  }
+}

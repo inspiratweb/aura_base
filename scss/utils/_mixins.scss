@@ -1,0 +1,36 @@
+// usage: @include clearfix
+@mixin clearfix{
+	&:after{
+		content: "";
+		display: table;
+		clear: both;
+	}
+}
+
+%clearfix{
+	@include clearfix;
+}
+
+// rgba polyfill ie8, usage @include rgba(red, 0.6)
+@mixin rgba($color, $alpha){
+	background-color: $color;
+	background-color: rgba($color, $alpha);
+}
+
+// opacity polyfill ie8, usage @include opacity(0.6)
+@mixin opacity($opacity){
+	opacity: $opacity;
+	$opacity-ie: $opacity * 100;
+	filter: alpha(opacity=$opacity-ie); //IE8
+}
+
+// Font-size rem calculator, usage @include font-size(14px)
+@function calculateRem($size){
+	$remSize: $size / 16px;
+	@return $remSize * 1rem;
+}
+
+@mixin font-size($size){
+	font-size: $size;
+	font-size: calculateRem($size);
+}

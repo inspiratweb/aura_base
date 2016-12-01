@@ -1,0 +1,116 @@
+//media queries definitions
+@mixin bp($point){
+	$big_desktop-viewport: 1200;
+	$desktop-viewport: 990;
+	$tablet-viewport: 768;
+
+	$desktop-only: "(min-width: "+$desktop-viewport+"px)";
+	$tablet-only: "(min-width: "+$tablet-viewport+"px) and (max-width: "+(($desktop-viewport)-1)+"px)";
+	$small_desktop: "(max-width: "+(($big_desktop-viewport)-1)+"px)";
+	$tablet: "(max-width: "+(($desktop-viewport)-1)+"px)";
+	$mobile: "(max-width: "+(($tablet-viewport)-1)+"px)";
+
+	@if ($point == desktop-only){
+		@media only screen and #{$desktop-only}{
+			@content;
+		}
+	}
+	@else if ($point == tablet-only){
+		@media only screen and #{$tablet-only}{
+			@content;
+		}
+	}
+	@else if ($point == small_desktop){
+		@media only screen and #{$small_desktop}{
+			@content;
+		}
+	}
+	@else if ($point == tablet){
+		@media only screen and #{$tablet}{
+			@content;
+		}
+	}
+	@else if ($point == mobile){
+		@media only screen and #{$mobile}{
+			@content;
+		}
+	}
+}
+
+$grid_rows: 12;
+//converted to %, the spacing between columns
+$gutter: 2;
+
+.row{
+	//border: solid 1px red
+	margin-bottom: 0px;
+	@extend %clearfix;
+
+	&-1, &-2, &-3, &-4{
+		@extend %clearfix;
+	}
+	&-1{
+		margin-bottom: 10px!important;
+	}
+	&-2{
+		margin-bottom: 20px!important;
+	}
+	&-3{
+		margin-bottom: 40px!important;
+	}
+	&-4{
+		margin-bottom: 100px!important;
+	}
+}
+
+.collapse{
+	.column{
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+
+.column{
+	float: left;
+	@extend %clearfix;
+	width: 100%;
+	//border: solid 1px #666
+	//background: #ccc
+	//height: 30px
+	padding-left: unquote('#{$gutter}"%"');
+	padding-right: unquote('#{$gutter}"%"');
+}
+
+@mixin calc_width($col){
+	width: unquote('#{$col / $grid_rows * 100}"%"');
+}
+
+@include bp(desktop-only){
+	.column{
+		@for $i from 2 through 10{
+			&.desktop-#{$i}{
+				@include calc_width($i);
+			}
+		}
+	}
+}
+
+@include bp(tablet-only){
+	.column{
+		@for $i from 2 through 10{
+			&.tablet-#{$i}{
+				@include calc_width($i);
+			}
+		}
+	}
+}
+
+@include bp(mobile){
+	.column{
+		@for $i from 2 through 10{
+			&.mobile-#{$i}{
+				@include calc_width($i);
+			}
+		}
+	}
+}
